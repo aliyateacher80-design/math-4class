@@ -49,7 +49,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Басты тақырып және Pixar стиліндегі сурет
+# Басты тақырып
 st.markdown("""
 <div class="title-banner">
     <h1>🎒 4-сынып Математика</h1>
@@ -57,7 +57,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Pixar стиліндегі суретті қою
+# Pixar стиліндегі сурет
 st.image("https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1000&q=80", use_container_width=True)
 
 # Қанатты сөз
@@ -81,7 +81,7 @@ filter_level = st.sidebar.selectbox(
 st.sidebar.markdown("---")
 st.sidebar.info("💡 Кеңес: Тапсырманы орындап, 'Нәтижесін көрсету' батырмасын басыңыз!")
 
-# Тапсырмалар қоры
+# 4-сыныпқа арналған тапсырмалар қоры
 tasks = [
     # I деңгей
     {
