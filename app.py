@@ -3,64 +3,73 @@ import streamlit as st
 # Беттің баптаулары
 st.set_page_config(
     page_title="4-сынып Математика: Есептер жинағы",
-    page_icon="",
+    page_icon="🎒",
     layout="centered"
 )
 
-# Pixar стиліндегі жарқын CSS дизайны
+# Pixar стиліндегі ерекше жарқын фон мен инфографикалық дизайн
 st.markdown("""
 <style>
+    .stApp {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
     .main {
-        background: linear-gradient(135deg, #a8ede0 0%, #fed6e3 100%);
+        background: rgba(255, 255, 255, 0.85);
+        padding: 30px;
+        border-radius: 30px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        backdrop-filter: blur(10px);
     }
     .stButton>button {
         border-radius: 20px;
         font-weight: bold;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 10px rgba(255,107,107,0.3);
         background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
         color: white;
+        border: none;
     }
     .stButton>button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        box-shadow: 0 6px 15px rgba(255,107,107,0.5);
     }
     .title-banner {
         text-align: center;
-        background: white;
-        padding: 20px;
-        border-radius: 20px;
-        color: #FF6B6B;
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+        padding: 25px;
+        border-radius: 25px;
+        color: #2d3436;
         margin-bottom: 25px;
-        border: 4px solid #4ECDC4;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border: 4px solid #fff;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
     .quote-box {
-        background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
-        padding: 12px;
-        border-radius: 15px;
+        background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+        padding: 15px;
+        border-radius: 20px;
         text-align: center;
         font-weight: bold;
         color: #2d3436;
         margin-bottom: 25px;
-        font-size: 1.1rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        font-size: 1.15rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        border: 2px solid #fff;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Басты тақырып
+# Басты тақырып баннері
 st.markdown("""
 <div class="title-banner">
-    <h1>🎒 4-сынып Математика</h1>
-    <p style="color: #636e72; font-size: 1.1rem;">Интерактивті есептер жинағы (Pixar Style 🌟)</p>
+    <h1 style="color: #d63031; margin: 0; font-size: 2.3rem;">🎒 4-сынып Математика</h1>
+    <p style="color: #2d3436; font-size: 1.2rem; margin-top: 5px;">Интерактивті есептер жинағы (Pixar Style 🌟)</p>
 </div>
 """, unsafe_allow_html=True)
 
-# Pixar стиліндегі сурет
+# Pixar стиліндегі көрнекі сурет
 st.image("https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1000&q=80", use_container_width=True)
 
-# Қанатты сөз
+# Қанатты сөз (Инфографикалық стильде)
 st.markdown("""
 <div class="quote-box">
     ✨ «Математика – ақыл-ойды шынықтыратын, ойлауды жүйелейтін ғылым!» ✨
@@ -71,7 +80,7 @@ st.markdown("""
 if 'results_state' not in st.session_state:
     st.session_state.results_state = {}
 
-# Сүзгі
+# Сүзгі (Бүйірлік панель)
 st.sidebar.markdown("### 🎛️ Басқару панелі")
 filter_level = st.sidebar.selectbox(
     "Деңгейді таңдаңыз:",
@@ -81,7 +90,7 @@ filter_level = st.sidebar.selectbox(
 st.sidebar.markdown("---")
 st.sidebar.info("💡 Кеңес: Тапсырманы орындап, 'Нәтижесін көрсету' батырмасын басыңыз!")
 
-# 4-сыныпқа арналған тапсырмалар қоры
+# 4-сыныпқа арналған нақты 10 тапсырма
 tasks = [
     # I деңгей
     {
@@ -184,4 +193,4 @@ for task in tasks:
                 st.info(task['solution'])
 
 st.markdown("---")
-st.markdown("<p style='text-align: center; color: #636e72;'>© 2026 4-сынып Математика платформасы | Streamlit 🚀</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #636e72;'>© 2026 4-сынып Математика платформасы | Pixar Style 🚀</p>", unsafe_allow_html=True)
