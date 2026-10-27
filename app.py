@@ -7,66 +7,97 @@ st.set_page_config(
     layout="centered"
 )
 
-# Pixar стиліндегі ерекше жарқын фон мен инфографикалық дизайн
+# Анимацияланған CSS дизайн және Басты баннер фоны
 st.markdown("""
 <style>
+    /* Негізгі фон анимациясы */
     .stApp {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        background: linear-gradient(-45deg, #e0c3fc, #8ec5fc, #e0c3fc, #fbc2eb);
+        background-size: 400% 400%;
+        animation: gradientBG 12s ease infinite;
     }
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Басты контейнер стилі */
     .main {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 30px;
-        border-radius: 30px;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.92);
+        padding: 25px;
+        border-radius: 25px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        backdrop-filter: blur(8px);
     }
+
+    /* Анимациялы Инфографикалық Баннер */
+    .hero-banner {
+        position: relative;
+        text-align: center;
+        padding: 30px 20px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(240,248,255,0.85) 100%);
+        border: 3px solid #74b9ff;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        margin-bottom: 25px;
+        animation: floatBanner 4s ease-in-out infinite;
+    }
+
+    @keyframes floatBanner {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-6px); }
+        100% { transform: translateY(0px); }
+    }
+
+    /* Қанатты сөз бөлімі */
+    .quote-box {
+        background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+        padding: 15px;
+        border-radius: 18px;
+        text-align: center;
+        font-weight: bold;
+        color: #2d3436;
+        margin-bottom: 25px;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        animation: pulseQuote 3s infinite alternate;
+    }
+
+    @keyframes pulseQuote {
+        0% { box-shadow: 0 4px 12px rgba(255, 118, 117, 0.2); }
+        100% { box-shadow: 0 8px 20px rgba(255, 118, 117, 0.5); }
+    }
+
+    /* 3D Анимациялы Батырмалар */
     .stButton>button {
         border-radius: 20px;
         font-weight: bold;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 10px rgba(255,107,107,0.3);
+        box-shadow: 0 4px 12px rgba(255,107,107,0.3);
         background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
         color: white;
         border: none;
     }
     .stButton>button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(255,107,107,0.5);
-    }
-    .title-banner {
-        text-align: center;
-        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-        padding: 25px;
-        border-radius: 25px;
-        color: #2d3436;
-        margin-bottom: 20px;
-        border: 4px solid #fff;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    .quote-box {
-        background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
-        padding: 15px;
-        border-radius: 20px;
-        text-align: center;
-        font-weight: bold;
-        color: #2d3436;
-        margin-bottom: 25px;
-        font-size: 1.15rem;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        border: 2px solid #fff;
+        transform: scale(1.03) translateY(-2px);
+        box-shadow: 0 6px 18px rgba(255,107,107,0.5);
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Басты тақырып баннері
+# Басты Pixar стиліндегі сурет баннері
 st.markdown("""
-<div class="title-banner">
-    <h1 style="color: #d63031; margin: 0; font-size: 2.3rem;">🎒 4-сынып Математика</h1>
-    <p style="color: #2d3436; font-size: 1.2rem; margin-top: 5px;">Интерактивті есептер жинағы (Pixar Style 🌟)</p>
+<div class="hero-banner">
+    <h1 style="color: #0984e3; margin: 0; font-size: 2.4rem;">🎒 4-сынып Математика</h1>
+    <p style="color: #636e72; font-size: 1.2rem; margin-top: 8px; font-weight: 600;">
+        Интерактивті есептер жинағы 🌟
+    </p>
 </div>
 """, unsafe_allow_html=True)
 
-# Қанатты сөз (Инфографикалық стильде)
+# Жылтырайтын қанатты сөз
 st.markdown("""
 <div class="quote-box">
     ✨ «Математика – ақыл-ойды шынықтыратын, ойлауды жүйелейтін ғылым!» ✨
@@ -87,7 +118,7 @@ filter_level = st.sidebar.selectbox(
 st.sidebar.markdown("---")
 st.sidebar.info("💡 Кеңес: Тапсырманы орындап, 'Нәтижесін көрсету' батырмасын басыңыз!")
 
-# 4-сыныпқа арналған нақты 10 тапсырма
+# 4-сынып есептер қоры
 tasks = [
     # I деңгей
     {
@@ -174,7 +205,7 @@ tasks = [
     }
 ]
 
-# Карточкаларды шығару
+# Тапсырмалар блогын шығару
 for task in tasks:
     if filter_level == "🌟 Барлық есептер" or filter_level == task["level_code"]:
         with st.expander(f"📌 {task['title']} ({task['level']})", expanded=True):
@@ -190,4 +221,4 @@ for task in tasks:
                 st.info(task['solution'])
 
 st.markdown("---")
-st.markdown("<p style='text-align: center; color: #636e72;'>© 2026 4-сынып Математика платформасы | Streamlit 🚀</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #636e72;'>© 2026 4-сынып Математика платформасы | Animated Pixar Edition 🚀</p>", unsafe_allow_html=True)
