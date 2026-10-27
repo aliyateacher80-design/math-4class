@@ -14,7 +14,7 @@ st.markdown("""
         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     }
     .main {
-        background: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.9);
         padding: 30px;
         border-radius: 30px;
         box-shadow: 0 15px 35px rgba(0,0,0,0.1);
@@ -39,7 +39,7 @@ st.markdown("""
         padding: 25px;
         border-radius: 25px;
         color: #2d3436;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         border: 4px solid #fff;
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
@@ -65,9 +65,6 @@ st.markdown("""
     <p style="color: #2d3436; font-size: 1.2rem; margin-top: 5px;">Интерактивті есептер жинағы (Pixar Style 🌟)</p>
 </div>
 """, unsafe_allow_html=True)
-
-# Pixar стиліндегі көрнекі сурет
-st.image("https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1000&q=80", use_container_width=True)
 
 # Қанатты сөз (Инфографикалық стильде)
 st.markdown("""
@@ -193,4 +190,4 @@ for task in tasks:
                 st.info(task['solution'])
 
 st.markdown("---")
-st.markdown("<p style='text-align: center; color: #636e72;'>© 2026 4-сынып Математика платформасы | Pixar Style 🚀</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #636e72;'>© 2026 4-сынып Математика платформасы | Streamlit 🚀</p>", unsafe_allow_html=True)
