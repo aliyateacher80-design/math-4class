@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# Анимацияланған CSS дизайн және Басты баннер фоны
+# Анимацияланған CSS дизайн және Жылтыраған жұлдыздар
 st.markdown("""
 <style>
     /* Негізгі фон анимациясы */
@@ -43,12 +43,31 @@ st.markdown("""
         box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         margin-bottom: 25px;
         animation: floatBanner 4s ease-in-out infinite;
+        overflow: hidden;
     }
 
     @keyframes floatBanner {
         0% { transform: translateY(0px); }
         50% { transform: translateY(-6px); }
         100% { transform: translateY(0px); }
+    }
+
+    /* Ұшып жүрген уақ жұлдыздар анимациясы */
+    .floating-star {
+        position: absolute;
+        font-size: 1.2rem;
+        animation: flyStar 3s ease-in-out infinite;
+    }
+
+    .star1 { top: 10%; left: 15%; animation-delay: 0s; }
+    .star2 { top: 20%; right: 12%; animation-delay: 1s; }
+    .star3 { bottom: 15%; left: 20%; animation-delay: 1.5s; }
+    .star4 { bottom: 20%; right: 18%; animation-delay: 0.5s; }
+
+    @keyframes flyStar {
+        0% { transform: translateY(0px) scale(1) rotate(0deg); opacity: 0.5; }
+        50% { transform: translateY(-12px) scale(1.3) rotate(180deg); opacity: 1; }
+        100% { transform: translateY(0px) scale(1) rotate(360deg); opacity: 0.5; }
     }
 
     /* Қанатты сөз бөлімі */
@@ -87,9 +106,13 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Басты Pixar стиліндегі сурет баннері
+# Жұлдыздары ұшып жүрген Pixar стиліндегі басты баннер
 st.markdown("""
 <div class="hero-banner">
+    <div class="floating-star star1">🌟</div>
+    <div class="floating-star star2">✨</div>
+    <div class="floating-star star3">⭐</div>
+    <div class="floating-star star4">💫</div>
     <h1 style="color: #0984e3; margin: 0; font-size: 2.4rem;">🎒 4-сынып Математика</h1>
     <p style="color: #636e72; font-size: 1.2rem; margin-top: 8px; font-weight: 600;">
         Интерактивті есептер жинағы 🌟
@@ -221,4 +244,4 @@ for task in tasks:
                 st.info(task['solution'])
 
 st.markdown("---")
-st.markdown("<p style='text-align: center; color: #636e72;'>© 2026 4-сынып Математика платформасы | Animated Pixar Edition 🚀</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #636e72;'>© 2026 4-сынып Математика платформасы | Magic Pixar Edition 🚀</p>", unsafe_allow_html=True)
