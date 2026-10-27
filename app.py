@@ -3,7 +3,7 @@ import streamlit as st
 # Беттің баптаулары
 st.set_page_config(
     page_title="4-сынып Математика: Есептер жинағы",
-    page_icon="🎒",
+    page_icon="",
     layout="centered"
 )
 
