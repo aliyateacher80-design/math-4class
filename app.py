@@ -106,7 +106,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Жұлдыздары ұшып жүрген Pixar стиліндегі басты баннер
+# Жұлдыздары ұшып жүрген Pixar стиліндегі басты баннер (Авторы көрсетілген)
 st.markdown("""
 <div class="hero-banner">
     <div class="floating-star star1">🌟</div>
@@ -116,6 +116,9 @@ st.markdown("""
     <h1 style="color: #0984e3; margin: 0; font-size: 2.4rem;">🎒 4-сынып Математика</h1>
     <p style="color: #636e72; font-size: 1.2rem; margin-top: 8px; font-weight: 600;">
         Интерактивті есептер жинағы 🌟
+    </p>
+    <p style="color: #e84393; font-size: 1rem; margin-top: 5px; font-weight: bold;">
+        👩‍🏫 Дайындаған: Сұлтанова Мейрамгүл
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -244,4 +247,4 @@ for task in tasks:
                 st.info(task['solution'])
 
 st.markdown("---")
-st.markdown("<p style='text-align: center; color: #636e72;'>© 2026 4-сынып Математика платформасы | Magic Pixar Edition 🚀</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #636e72;'>© 2026 4-сынып Математика платформасы | Авторы: Сұлтанова Мейрамгүл 🚀</p>", unsafe_allow_html=True)
