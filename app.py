@@ -35,14 +35,35 @@ st.markdown("""
         border: 4px solid #4ECDC4;
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
+    .quote-box {
+        background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+        padding: 12px;
+        border-radius: 15px;
+        text-align: center;
+        font-weight: bold;
+        color: #2d3436;
+        margin-bottom: 25px;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
 </style>
 """, unsafe_allow_html=True)
 
-# Басты тақырып
+# Басты тақырып және Pixar стиліндегі сурет
 st.markdown("""
 <div class="title-banner">
     <h1>🎒 4-сынып Математика</h1>
-    <p style="color: #636e72;">Интерактивті есептер жинағы (Pixar Style 🌟)</p>
+    <p style="color: #636e72; font-size: 1.1rem;">Интерактивті есептер жинағы (Pixar Style 🌟)</p>
+</div>
+""", unsafe_allow_html=True)
+
+# Pixar стиліндегі суретті қою
+st.image("https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1000&q=80", use_container_width=True)
+
+# Қанатты сөз
+st.markdown("""
+<div class="quote-box">
+    ✨ «Математика – ақыл-ойды шынықтыратын, ойлауды жүйелейтін ғылым!» ✨
 </div>
 """, unsafe_allow_html=True)
 
