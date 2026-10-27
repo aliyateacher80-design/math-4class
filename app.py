@@ -70,16 +70,17 @@ st.markdown("""
         100% { transform: translateY(0px) scale(1) rotate(360deg); opacity: 0.5; }
     }
 
-    /* Деңгей бағандарының тақырыбы */
-    .level-card-header {
+    /* Деңгей тақырыптарының стилі */
+    .level-header {
         background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
         color: white;
-        padding: 12px;
-        border-radius: 12px 12px 0 0;
-        text-align: center;
-        font-size: 1.1rem;
+        padding: 12px 20px;
+        border-radius: 15px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        font-size: 1.3rem;
         font-weight: bold;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     /* Қанатты сөз бөлімі */
@@ -104,7 +105,6 @@ st.markdown("""
         background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
         color: white;
         border: none;
-        width: 100%;
     }
     .stButton>button:hover {
         transform: scale(1.03) translateY(-2px);
@@ -139,118 +139,161 @@ st.markdown("""
 
 # 🎬 ЖИ арқылы жасалған видеоны қоятын орын
 st.markdown("### 🎬 ЖИ Видеосабақ & Таныстырылым")
-st.info("💡 Ертең ЖИ арқылы жасалған видеоңызды осы жерге қоса аласыз (мысалы: st.video('url'))")
+st.info("💡 Ертең ЖИ арқылы жасалған видеоңызды осы жерге қоса аласыз.")
 # st.video("СІЗДІҢ_ЖИ_ВИДЕО_СІЛТЕМЕСІ")
 
 st.markdown("---")
-st.markdown("### 📚 Деңгейлік тапсырмалар жинағы")
 
 # Сессия күйін сақтау
 if 'results_state' not in st.session_state:
     st.session_state.results_state = {}
 
-# 3 деңгейді қатар орналастыру үшін Streamlit columns (бағандар) қолданамыз
-col1, col2, col3 = st.columns(3)
+# ----------------- I ДЕҢГЕЙ -----------------
+st.markdown('<div class="level-header" style="background: linear-gradient(135deg, #00b894, #55efc4);">🟢 I деңгей (Өлшем бірліктері, шамалар және уақыт)</div>', unsafe_allow_html=True)
 
-# ================= I ДЕҢГЕЙ (Баған 1) =================
-with col1:
-    st.markdown('<div class="level-header" style="background: linear-gradient(135deg, #00b894, #55efc4);">🟢 I деңгей</div>', unsafe_allow_html=True)
-    
-    with st.expander("📌 1-тапсырма. Өлшем бірлік"):
-        st.markdown("**Шарт:**\nа) 6 м² = ? дм²\nә) 5 м³ = ? см³\nб) 3 т = ? кг\nв) 2 сағ 30 мин = ? мин")
-        btn_key = "task_1"
-        if btn_key not in st.session_state.results_state: st.session_state.results_state[btn_key] = False
-        if st.button("✨ Шешуі", key="btn_1"): st.session_state.results_state[btn_key] = not st.session_state.results_state[btn_key]
+tasks_level_1 = [
+    {
+        "id": 1,
+        "title": "1-тапсырма. Өлшем бірліктерін түрлендір",
+        "condition": "а) 6 м² = ? дм²  \nә) 5 м³ = ? см³  \nб) 3 т = ? кг  \nв) 2 сағ 30 мин = ? мин",
+        "solution": "**📝 Толық шығарылу жолы:**\n• а) 1 м² = 100 дм² болғандықтан, 6 × 100 = **600 дм²**\n• ә) 1 м³ = 1 000 000 см³, бірақ 1 дм³ = 1000 см³. Есеп шартындағы әдеттегі мектеп бағдарламасы бойынша: 5 м³ = **5 000 000 см³** (немесе дм³ арқылы: 5 × 1000 = 5000 дм³)\n• б) 1 т = 1000 кг ➔ 3 × 1000 = **3000 кг**\n• в) 1 сағ = 60 мин ➔ 2 сағ = 120 мин, үстіне 30 мин қоссақ: 120 + 30 = **150 мин**\n\n🎉 **Жауабы:** а) 600 дм²; ә) 5 000 000 см³; б) 3000 кг; в) 150 минут."
+    },
+    {
+        "id": 2,
+        "title": "2-тапсырма. Шамаларды салыстыр",
+        "condition": "Тиісті >, <, = таңбаларын қой:\nа) 350 см □ 3 м 5 см\nә) 2 т □ 1950 кг\nб) 4000 м² □ 40 ар\nв) 180 мин □ 3 сағ",
+        "solution": "**📝 Толық шығарылу жолы:**\n• а) 3 м 5 см = 300 см + 5 см = 305 см. Салыстырамыз: 350 см > 305 см ➔ **350 см > 3 м 5 см**\n• ә) 2 т = 2000 кг. Салыстырамыз: 2000 кг > 1950 кг ➔ **2 т > 1950 кг**\n• б) 1 ар = 100 м². 40 ар = 40 × 100 = 4000 м². Салыстырамыз: **4000 м² = 40 ар**\n• в) 3 сағ = 3 × 60 мин = 180 мин. Салыстырамыз: **180 мин = 3 сағ**\n\n🎉 **Жауабы:** а) >; ә) >; б) =; в) =."
+    },
+    {
+        "id": 3,
+        "title": "3-тапсырма. Уақытты есепте",
+        "condition": "Саяхат 2 тәулік 8 сағатқа жоспарланды. Нақты сапар 72 сағатқа созылды. Сапар жоспарланған уақыттан неше сағатқа ұзақ болды?",
+        "solution": "**📝 Толық шығарылу жолы:**\n1) 1 тәулік = 24 сағат екенін білеміз.\n2) 2 тәулікті сағатқа айналдырамыз: 2 × 24 = 48 сағат.\n3) Жоспарланған жалпы уақыт: 48 сағат + 8 сағат = 56 сағат.\n4) Нақты сапар уақыты 72 сағат. Олардың айырмасын табамыз: 72 – 56 = 16 сағат.\n\n🎉 **Жауабы:** Сапар жоспарланған уақыттан **16 сағатқа** ұзақ болды."
+    }
+]
+
+for task in tasks_level_1:
+    with st.expander(f"📌 {task['title']}", expanded=False):
+        st.markdown(f"**Есеп шарты:**\n\n{task['condition']}")
+        btn_key = f"task_{task['id']}"
+        if btn_key not in st.session_state.results_state:
+            st.session_state.results_state[btn_key] = False
+        if st.button(f"✨ Нәтижесін / Шығарылу жолын көрсету", key=f"btn_{task['id']}"):
+            st.session_state.results_state[btn_key] = not st.session_state.results_state[btn_key]
         if st.session_state.results_state[btn_key]:
-            st.info("а) 600 дм²\nә) 5000 см³\nб) 3000 кг\nв) 150 мин")
+            st.info(task['solution'])
 
-    with st.expander("📌 2-тапсырма. Салыстыру"):
-        st.markdown("**Шарт:**\nа) 350 см □ 3 м 5 см\nә) 2 т □ 1950 кг\nб) 4000 м² □ 40 ар\nв) 180 мин □ 3 сағ")
-        btn_key = "task_2"
-        if btn_key not in st.session_state.results_state: st.session_state.results_state[btn_key] = False
-        if st.button("✨ Шешуі", key="btn_2"): st.session_state.results_state[btn_key] = not st.session_state.results_state[btn_key]
+
+# ----------------- II ДЕҢГЕЙ -----------------
+st.markdown('<div class="level-header" style="background: linear-gradient(135deg, #fdcb6e, #ffeaa7); color: #2d3436;">🟡 II деңгей (Дүкен, валюта және қаржылық есептер)</div>', unsafe_allow_html=True)
+
+tasks_level_2 = [
+    {
+        "id": 4,
+        "title": "4-тапсырма. Дүкендегі есеп",
+        "condition": "Айдана 3 кг алма сатып алды. 1 кг алманың бағасы – 850 теңге. Ол тағы 2 шырын алды, әрқайсысы 620 теңге. Айдана кассаға 5000 теңге берсе, қанша теңге қайтарым алады?",
+        "solution": "**📝 Толық шығарылу жолы:**\n1) Алманың жалпы құнын есептейміз: 3 кг × 850 теңге = 2550 теңге.\n2) Шырындардың жалпы құнын есептейміз: 2 дана × 620 теңге = 1240 теңге.\n3) Сатып алынған барлық заттардың құнын қосамыз: 2550 + 1240 = 3790 теңге.\n4) Кассадан қайтарылатын ақшаны табамыз: 5000 теңге – 3790 теңге = 1210 теңге.\n\n🎉 **Жауабы:** Айданаға **1210 теңге** қайтарылады."
+    },
+    {
+        "id": 5,
+        "title": "5-тапсырма. Валютаны есепте",
+        "condition": "Шартты бағам бойынша 1 доллар = 6 рубль. 200 доллар неше рубль болады?",
+        "solution": "**📝 Толық шығарылу жолы:**\n1 доллардың құны 6 рубль болса, 200 доллардың тең бағасын табу үшін көбейту амалын қолданамыз:\n200 × 6 = 1200 рубль.\n\n🎉 **Жауабы:** 200 доллар = **1200 рубль**."
+    },
+    {
+        "id": 6,
+        "title": "6-тапсырма. Төлемді жоспарла",
+        "condition": "Отбасы азық-түлікке 18 500 теңге жұмсады. Олар 20 000 теңгелік банкнотпен төледі.\nа) Қанша теңге қайтарым алады?\nә) Егер қолдарында 20 000 теңгелік 1 банкнот, 10 000 теңгелік 2 банкнот және 2000 теңгелік 5 банкнот болса, барлығы неше теңге бар?",
+        "solution": "**📝 Толық шығарылу жолы:**\n• а) Қайтарылатын ақшаны есептейміз: 20 000 – 18 500 = **1500 теңге**.\n• ә) Қолдағы бар ақшаларды жеке-жеке есептеп қосамыз:\n  - 20 000 теңгелік 1 банкнот = 1 × 20 000 = 20 000 теңге.\n  - 10 000 теңгелік 2 банкнот = 2 × 10 000 = 20 000 теңге.\n  - 2000 теңгелік 5 банкнот = 5 × 2000 = 10 000 теңге.\n  - Жалпы сомасы: 20 000 + 20 000 + 10 000 = 50 000 теңге.\n\n🎉 **Жауабы:** а) **1500 теңге** қайтарылады; ә) барлығы **50 000 теңге** бар."
+    }
+]
+
+for task in tasks_level_2:
+    with st.expander(f"📌 {task['title']}", expanded=False):
+        st.markdown(f"**Есеп шарты:**\n\n{task['condition']}")
+        btn_key = f"task_{task['id']}"
+        if btn_key not in st.session_state.results_state:
+            st.session_state.results_state[btn_key] = False
+        if st.button(f"✨ Нәтижесін / Шығарылу жолын көрсету", key=f"btn_{task['id']}"):
+            st.session_state.results_state[btn_key] = not st.session_state.results_state[btn_key]
         if st.session_state.results_state[btn_key]:
-            st.info("а) >\nә) >\nб) =\nв) =")
+            st.info(task['solution'])
 
-    with st.expander("📌 3-тапсырма. Уақыт"):
-        st.markdown("**Шарт:**\nСаяхат 2 тәулік 8 сағ. Нақты сапар 72 сағ. Неше сағатқа ұзақ болды?")
-        btn_key = "task_3"
-        if btn_key not in st.session_state.results_state: st.session_state.results_state[btn_key] = False
-        if st.button("✨ Шешуі", key="btn_3"): st.session_state.results_state[btn_key] = not st.session_state.results_state[btn_key]
+
+# ----------------- III ДЕҢГЕЙ -----------------
+st.markdown('<div class="level-header" style="background: linear-gradient(135deg, #ff7675, #d63031);">🔴 III деңгей (Аудан, логика, пайыз және тесттер)</div>', unsafe_allow_html=True)
+
+tasks_level_3 = [
+    {
+        "id": 7,
+        "title": "7-тапсырма. Аудан және үлес",
+        "condition": "Бақшаның ұзындығы 50 м, ені 30 м. Бақшаның төрттен бір бөлігіне көкөніс егілді. Көкөніс егілген жердің ауданын армен өрнектеңіз. (1 ар = 100 м²)",
+        "solution": "**📝 Толық шығарылу жолы:**\n1) Бақшаның толық ауданын табамыз (Тіктөртбұрыштың ауданы S = a × b): 50 м × 30 м = 1500 м².\n2) Оның төрттен бір бөлігін (1/4) есептейміз: 1500 : 4 = 375 м².\n3) Шыққан мәнді арға айналдырамыз (1 ар = 100 м²): 375 : 100 = 3,75 ар.\n\n🎉 **Жауабы:** Көкөніс егілген жердің ауданы **3,75 ар**."
+    },
+    {
+        "id": 8,
+        "title": "8-тапсырма. Логикалық есеп",
+        "condition": "Үш қорапта барлығы 84 қарындаш бар. Бірінші қораптағы қарындаш саны екінші қораптағыдан 2 есе көп, ал үшінші қорапта екінші қораптағыдан 12 қарындаш артық. Екінші қорапта неше қарындаш бар?",
+        "solution": "**📝 Толық шығарылу жолы:**\n1) Екінші қораптағы қарындаш санын **x** деп белгілейміз.\n2) Онда бірінші қораптағы қарындаш саны – **2x**.\n3) Үшінші қораптағы қарындаш саны – **x + 12**.\n4) Барлығын қосып, теңдеу құрамыз: 2x + x + (x + 12) = 84\n5) Теңдеуді шешеміз: \n   4x + 12 = 84\n   4x = 84 – 12\n   4x = 72\n   x = 72 : 4\n   x = 18\n\n🎉 **Жауабы:** Екінші қорапта **18 қарындаш** бар."
+    },
+    {
+        "id": 9,
+        "title": "9-тапсырма. Пайыздық жеңілдік",
+        "condition": "Сөмкенің бастапқы бағасы 40 000 теңге. Дүкенде оған 10% жеңілдік жасалды. Жеткізу құны 2000 теңге. Сөмкені жеткізумен бірге алу үшін барлығы қанша төлеу керек?",
+        "solution": "**📝 Толық шығарылу жолы:**\n1) Сөмкеге жасалған 10% жеңілдік сомасын табамыз: (40 000 : 100) × 10 = 4000 теңге.\n2) Жеңілдетілгеннен кейінгі сөмке бағасы: 40 000 – 4000 = 36 000 теңге.\n3) Үстіне жеткізу құнын қосамыз: 36 000 + 2000 = 38 000 теңге.\n\n🎉 **Жауабы:** Барлығы **38 000 теңге** төлеу керек."
+    },
+    {
+        "id": 10,
+        "title": "10-тапсырма. Тест сұрақтары",
+        "condition": """**Сұрақтар тізбегі:**
+1. 480 санының 25%-ы нешеге тең?
+   A) 100
+   B) 120
+   C) 125
+   D) 140
+
+2. Үшбұрыштың периметрі 36 см (қабырғалары өзара тең). Оның бір қабырғасы неге тең?
+   A) 9 см
+   B) 10 см
+   C) 12 см
+   D) 18 см
+
+3. Сандар қатарын жалғастыр: 3, 6, 12, 24, ...
+   A) 30
+   B) 36
+   C) 42
+   D) 48
+
+4. Тауардың бағасы 8000 теңге, 10% жеңілдікпен сатылса, жаңа бағасы қандай болады?
+   A) 7200 тг
+   B) 7000 тг
+   C) 7800 тг
+   D) 7600 тг
+
+5. Белгісіз санды 4-ке көбейтіп, нәтижесіне 8-ді қосқанда 32 шықты. Бұл қай сан?
+   A) 4
+   B) 5
+   C) 6
+   D) 8""",
+        "solution": """**📝 Тесттің толық шешу жолдары мен жауаптары:**
+1) **B) 120** (Түсіндірме: 480 санының 25%-ы немесе төрттен бірі ➔ 480 : 4 = 120)
+2) **C) 12 см** (Түсіндірме: Үш қабырғасы тең үшбұрыштың бір қабырғасын табу үшін периметрін 3-ке бөлеміз ➔ 36 : 3 = 12 см)
+3) **D) 48** (Түсіндірме: Әрбір сан алдыңғы саннан 2 есе артық ➔ 24 × 2 = 48)
+4) **A) 7200 тг** (Түсіндірме: 8000-ның 10%-ы 800 тг. Жаңа бағасы: 8000 – 800 = 7200 тг)
+5) **C) 6** (Түсіндірме: Кері амал арқылы есептейміз: (32 – 8) : 4 = 24 : 4 = 6)"""
+    }
+]
+
+for task in tasks_level_3:
+    with st.expander(f"📌 {task['title']}", expanded=False):
+        st.markdown(f"**Есеп шарты мен сұрақтар:**\n\n{task['condition']}")
+        btn_key = f"task_{task['id']}"
+        if btn_key not in st.session_state.results_state:
+            st.session_state.results_state[btn_key] = False
+        if st.button(f"✨ Нәтижесін / Шығарылу жолын көрсету", key=f"btn_{task['id']}"):
+            st.session_state.results_state[btn_key] = not st.session_state.results_state[btn_key]
         if st.session_state.results_state[btn_key]:
-            st.info("Жоспар: 56 сағ.\nАйырмасы: 72 - 56 = **16 сағат**")
-
-# ================= II ДЕҢГЕЙ (Баған 2) =================
-with col2:
-    st.markdown('<div class="level-header" style="background: linear-gradient(135deg, #fdcb6e, #ffeaa7); color: #2d3436;">🟡 II деңгей</div>', unsafe_allow_html=True)
-    
-    with st.expander("📌 4-тапсырма. Дүкен есебі"):
-        st.markdown("**Шарт:**\n3 кг алма (1 кг - 850 тг) + 2 шырын (әрқ. 620 тг). 5000 тг берсе қанша қайтарылады?")
-        btn_key = "task_4"
-        if btn_key not in st.session_state.results_state: st.session_state.results_state[btn_key] = False
-        if st.button("✨ Шешуі", key="btn_4"): st.session_state.results_state[btn_key] = not st.session_state.results_state[btn_key]
-        if st.session_state.results_state[btn_key]:
-            st.info("Барлығы: 3790 тг.\nҚайтарым: 5000 - 3790 = **1210 тг**")
-
-    with st.expander("📌 5-тапсырма. Валюта"):
-        st.markdown("**Шарт:**\n1 доллар = 6 рубль. 200 доллар неше рубль?")
-        btn_key = "task_5"
-        if btn_key not in st.session_state.results_state: st.session_state.results_state[btn_key] = False
-        if st.button("✨ Шешуі", key="btn_5"): st.session_state.results_state[btn_key] = not st.session_state.results_state[btn_key]
-        if st.session_state.results_state[btn_key]:
-            st.info("200 × 6 = **1200 рубль**")
-
-    with st.expander("📌 6-тапсырма. Төлем"):
-        st.markdown("**Шарт:**\nАзық-түлікке 18 500 тг жұмсалып, 20 000 тг берілді. Қайтарым қанша?")
-        btn_key = "task_6"
-        if btn_key not in st.session_state.results_state: st.session_state.results_state[btn_key] = False
-        if st.button("✨ Шешуі", key="btn_6"): st.session_state.results_state[btn_key] = not st.session_state.results_state[btn_key]
-        if st.session_state.results_state[btn_key]:
-            st.info("Қайтарым: 20000 - 18500 = **1500 теңге**")
-
-# ================= III ДЕҢГЕЙ (Баған 3) =================
-with col3:
-    st.markdown('<div class="level-header" style="background: linear-gradient(135deg, #ff7675, #d63031);">🔴 III деңгей</div>', unsafe_allow_html=True)
-    
-    with st.expander("📌 7-тапсырма. Аудан"):
-        st.markdown("**Шарт:**\nҰзындығы 50 м, ені 30 м бақшаның 1/4 бөлігіне көкөніс егілді. Ауданды армен тап.")
-        btn_key = "task_7"
-        if btn_key not in st.session_state.results_state: st.session_state.results_state[btn_key] = False
-        if st.button("✨ Шешуі", key="btn_7"): st.session_state.results_state[btn_key] = not st.session_state.results_state[btn_key]
-        if st.session_state.results_state[btn_key]:
-            st.info("Толық аудан: 1500 м².\nТөрттен бірі: 375 м² = **3,75 ар**")
-
-    with st.expander("📌 8-тапсырма. Логика"):
-        st.markdown("**Шарт:**\n3 қорапта 84 қарындаш бар. 1-ші 2-шілктен 2 есе көп, 3-ші 2-шілктен 12 артық.")
-        btn_key = "task_8"
-        if btn_key not in st.session_state.results_state: st.session_state.results_state[btn_key] = False
-        if st.button("✨ Шешуі", key="btn_8"): st.session_state.results_state[btn_key] = not st.session_state.results_state[btn_key]
-        if st.session_state.results_state[btn_key]:
-            st.info("Екінші қорапта: **18 қарындаш**")
-
-    with st.expander("📌 9-тапсырма. Жеңілдік"):
-        st.markdown("**Шарт:**\n40000 тг сөмкеге 10% жеңілдік жасалды + 2000 тг жеткізу. Барлығы қанша?")
-        btn_key = "task_9"
-        if btn_key not in st.session_state.results_state: st.session_state.results_state[btn_key] = False
-        if st.button("✨ Шешуі", key="btn_9"): st.session_state.results_state[btn_key] = not st.session_state.results_state[btn_key]
-        if st.session_state.results_state[btn_key]:
-            st.info("Жеңілдетілген баға: 36000 тг.\nЖеткізумен: **38 000 теңге**")
-
-# Ең астындағы 10-тапсырма (Тесттер) толық енге созылады
-with st.expander("📌 10-тапсырма. Тест сұрақтары (Барлық деңгейді қорытындылау)"):
-    st.markdown("""
-    **Сұрақтар:**
-    1. 480 санының 25%-ы нешеге тең? (A: 100, B: 120, C: 125, D: 140)
-    2. Үшбұрыштың периметрі 36 см. Бір қабырғасы? (A: 9 см, B: 10 см, C: 12 см, D: 18 см)
-    3. Қатарды жалғастыр: 3, 6, 12, 24, ... (A: 30, B: 36, C: 42, D: 48)
-    4. Тауар 8000 тг, 10% жеңілдікпен жаңа бағасы? (A: 7200 тг, B: 7000 тг, C: 7800 тг, D: 7600 тг)
-    5. Санды 4-ке көбейтіп, 8-ді қосқанда 32 шықты. Сан? (A: 4, B: 5, C: 6, D: 8)
-    """)
-    btn_key = "task_10"
-    if btn_key not in st.session_state.results_state: st.session_state.results_state[btn_key] = False
-    if st.button("✨ Тест жауаптарын көрсету", key="btn_10"): st.session_state.results_state[btn_key] = not st.session_state.results_state[btn_key]
-    if st.session_state.results_state[btn_key]:
-        st.info("1) B) 120\n2) C) 12 см\n3) D) 48\n4) A) 7200 тг\n5) C) 6")
+            st.info(task['solution'])
 
 st.markdown("---")
 st.markdown("<p style='text-align: center; color: #636e72;'>© 2026 4-сынып Математика платформасы | Авторы: Сұлтанова Мейрамгүл 🚀</p>", unsafe_allow_html=True)
