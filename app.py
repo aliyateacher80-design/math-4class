@@ -2,8 +2,8 @@ import streamlit as st
 
 # Беттің баптаулары
 st.set_page_config(
-    page_title="4-сынып Математика: Есептер жинағы",
-    page_icon="🎒",
+    page_title="ЗЕРДЕVERSE: Жасанды интеллект пен математика әлемі",
+    page_icon="🧠",
     layout="centered"
 )
 
@@ -12,9 +12,10 @@ st.markdown("""
 <style>
     /* Негізгі фон анимациясы */
     .stApp {
-        background: linear-gradient(-45deg, #e0c3fc, #8ec5fc, #e0c3fc, #fbc2eb);
+        background: linear-gradient(-45deg, #1e3c72, #2a5298, #0f2027, #203a43);
         background-size: 400% 400%;
         animation: gradientBG 12s ease infinite;
+        color: #ffffff;
     }
 
     @keyframes gradientBG {
@@ -25,11 +26,11 @@ st.markdown("""
 
     /* Басты контейнер стилі */
     .main {
-        background: rgba(255, 255, 255, 0.92);
+        background: rgba(15, 23, 42, 0.85);
         padding: 25px;
         border-radius: 25px;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-        backdrop-filter: blur(8px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        backdrop-filter: blur(10px);
     }
 
     /* Анимациялы Инфографикалық Баннер */
@@ -38,9 +39,9 @@ st.markdown("""
         text-align: center;
         padding: 30px 20px;
         border-radius: 20px;
-        background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(240,248,255,0.85) 100%);
-        border: 3px solid #74b9ff;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
+        border: 2px solid #38bdf8;
+        box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
         margin-bottom: 25px;
         animation: floatBanner 4s ease-in-out infinite;
         overflow: hidden;
@@ -72,7 +73,7 @@ st.markdown("""
 
     /* Деңгей тақырыптарының стилі */
     .level-header {
-        background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
         color: white;
         padding: 12px 20px;
         border-radius: 15px;
@@ -80,20 +81,21 @@ st.markdown("""
         margin-bottom: 20px;
         font-size: 1.3rem;
         font-weight: bold;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     /* Қанатты сөз бөлімі */
     .quote-box {
-        background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        border: 1px solid #38bdf8;
         padding: 15px;
         border-radius: 18px;
         text-align: center;
         font-weight: bold;
-        color: #2d3436;
+        color: #e2e8f0;
         margin-bottom: 25px;
         font-size: 1.1rem;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     /* 3D Анимациялы Батырмалар */
@@ -101,39 +103,42 @@ st.markdown("""
         border-radius: 20px;
         font-weight: bold;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(255,107,107,0.3);
-        background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+        box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+        background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
         color: white;
         border: none;
     }
     .stButton>button:hover {
         transform: scale(1.03) translateY(-2px);
-        box-shadow: 0 6px 18px rgba(255,107,107,0.5);
+        box-shadow: 0 6px 18px rgba(56, 189, 248, 0.5);
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Жұлдыздары ұшып жүрген Pixar стиліндегі басты баннер
+# Жұлдыздары ұшып жүрген ЗЕРДЕVERSE баннері
 st.markdown("""
 <div class="hero-banner">
-    <div class="floating-star star1">🌟</div>
+    <div class="floating-star star1">🌌</div>
     <div class="floating-star star2">✨</div>
     <div class="floating-star star3">⭐</div>
     <div class="floating-star star4">💫</div>
-    <h1 style="color: #0984e3; margin: 0; font-size: 2.4rem;">🎒 4-сынып Математика</h1>
-    <p style="color: #636e72; font-size: 1.2rem; margin-top: 8px; font-weight: 600;">
-        Интерактивті есептер жинағы 🌟
+    <h1 style="color: #38bdf8; margin: 0; font-size: 2.5rem; letter-spacing: 2px;">ЗЕРДЕVERSE</h1>
+    <p style="color: #f1f5f9; font-size: 1.2rem; margin-top: 8px; font-weight: 600;">
+        Жасанды интеллект пен математика әлемі
     </p>
-    <p style="color: #e84393; font-size: 1rem; margin-top: 5px; font-weight: bold;">
-        👩‍🏫 Дайындаған: Сұлтанова Мейрамгүл
+    <p style="color: #94a3b8; font-size: 1rem; margin-top: 5px; font-weight: 500;">
+        Математика пәнінен жасанды интеллект арқылы оқушылардың функционалдық сауаттылығын дамыту
+    </p>
+    <p style="color: #38bdf8; font-size: 1.05rem; margin-top: 10px; font-weight: bold;">
+        👩‍🏫 Автор: Косимова А.
     </p>
 </div>
 """, unsafe_allow_html=True)
 
-# Жылтырайтын қанатты сөз
+# Ұран / Қанатты сөз
 st.markdown("""
 <div class="quote-box">
-    ✨ «Математика – ақыл-ойды шынықтыратын, ойлауды жүйелейтін ғылым!» ✨
+    🚀 🧠 Ойлан • Есепте • Талда • Өмірде қолдан! 💡
 </div>
 """, unsafe_allow_html=True)
 
@@ -149,7 +154,7 @@ if 'results_state' not in st.session_state:
     st.session_state.results_state = {}
 
 # ----------------- I ДЕҢГЕЙ -----------------
-st.markdown('<div class="level-header" style="background: linear-gradient(135deg, #00b894, #55efc4);">🟢 I деңгей (Өлшем бірліктері, шамалар және уақыт)</div>', unsafe_allow_html=True)
+st.markdown('<div class="level-header" style="background: linear-gradient(135deg, #059669, #10b981);">🟢 I деңгей (Өлшем бірліктері, шамалар және уақыт)</div>', unsafe_allow_html=True)
 
 tasks_level_1 = [
     {
@@ -185,7 +190,7 @@ for task in tasks_level_1:
 
 
 # ----------------- II ДЕҢГЕЙ -----------------
-st.markdown('<div class="level-header" style="background: linear-gradient(135deg, #fdcb6e, #ffeaa7); color: #2d3436;">🟡 II деңгей (Дүкен, валюта және қаржылық есептер)</div>', unsafe_allow_html=True)
+st.markdown('<div class="level-header" style="background: linear-gradient(135deg, #d97706, #f59e0b);">🟡 II деңгей (Дүкен, валюта және қаржылық есептер)</div>', unsafe_allow_html=True)
 
 tasks_level_2 = [
     {
@@ -221,7 +226,7 @@ for task in tasks_level_2:
 
 
 # ----------------- III ДЕҢГЕЙ -----------------
-st.markdown('<div class="level-header" style="background: linear-gradient(135deg, #ff7675, #d63031);">🔴 III деңгей (Аудан, логика, пайыз және тесттер)</div>', unsafe_allow_html=True)
+st.markdown('<div class="level-header" style="background: linear-gradient(135deg, #dc2626, #ef4444);">🔴 III деңгей (Аудан, логика, пайыз және тесттер)</div>', unsafe_allow_html=True)
 
 tasks_level_3 = [
     {
@@ -296,4 +301,4 @@ for task in tasks_level_3:
             st.info(task['solution'])
 
 st.markdown("---")
-st.markdown("<p style='text-align: center; color: #636e72;'>© 2026 4-сынып Математика платформасы | Авторы: Сұлтанова Мейрамгүл 🚀</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #94a3b8;'>© 2026 ЗЕРДЕVERSE платформасы | Авторы: Косимова А. 🚀</p>", unsafe_allow_html=True)
