@@ -142,25 +142,22 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# 🎬 ЖИ арқылы жасалған видеосабақтар мен таныстырылымдар
+# 🎬 ЖИ арқылы жасалған видеосабақтар (videos папкасынан)
 st.markdown("### 🎬 ЖИ Видеосабақтар & Таныстырылымдар")
 
-st.markdown("#### 🎒 Сөмке бағасы мен жеңілдік есебі")
-st.video("WhatsApp Video 2026-10-29 at 14.11.55.mp4")
-
-st.markdown("#### 🌾 Күріш бағасын есептеу видеолары")
+st.markdown("#### 🎒 Сабаққа кіріспе және есептер")
 col1, col2 = st.columns(2)
 with col1:
-    st.video("WhatsApp Video 2026-10-29 at 14.11.56 (1).mp4")
-    st.video("WhatsApp Video 2026-10-29 at 14.11.56 (3).mp4")
+    st.video("videos/1.mp4")
+    st.video("videos/3.mp4")
+    st.video("videos/5.mp4")
 with col2:
-    st.video("WhatsApp Video 2026-10-29 at 14.11.56 (2).mp4")
-    st.video("WhatsApp Video 2026-10-29 at 14.11.56 (4).mp4")
+    st.video("videos/2.mp4")
+    st.video("videos/4.mp4")
+    st.video("videos/6.mp4")
 
-st.markdown("#### 🧠 Логикалық есептер мен марапаттау")
-st.video("WhatsApp Video 2026-10-29 at 14.11.55_2.mp4")
-st.video("WhatsApp Video 2026-10-29 at 14.11.56.mp4")
-st.video("WhatsApp Video 2026-10-29 at 14.11.57.mp4")
+st.markdown("#### 🏆 Қорытынды және марапаттау")
+st.video("videos/7.mp4")
 
 st.markdown("---")
 
