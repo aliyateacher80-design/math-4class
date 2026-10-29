@@ -130,7 +130,7 @@ st.markdown("""
         Математика пәнінен жасанды интеллект арқылы оқушылардың функционалдық сауаттылығын дамыту
     </p>
     <p style="color: #38bdf8; font-size: 1.05rem; margin-top: 10px; font-weight: bold;">
-        👩‍🏫 Автор: Косимова А.
+        👩‍🏫 Автор: Сұлтанова М.
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -301,4 +301,4 @@ for task in tasks_level_3:
             st.info(task['solution'])
 
 st.markdown("---")
-st.markdown("<p style='text-align: center; color: #94a3b8;'>© 2026 ЗЕРДЕVERSE платформасы | Авторы: Косимова А. 🚀</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #94a3b8;'>© 2026 ЗЕРДЕVERSE платформасы | Авторы: Сұлтанова М. 🚀</p>", unsafe_allow_html=True)
