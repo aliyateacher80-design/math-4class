@@ -61,6 +61,15 @@ st.markdown("""
         margin-bottom: 25px;
         font-size: 1.1rem;
     }
+    .section-title {
+        text-align: center;
+        color: #38bdf8;
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-top: 35px;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+    }
     .stButton>button {
         border-radius: 20px;
         font-weight: bold;
@@ -116,7 +125,8 @@ with col2:
 st.markdown("#### 🏆 Қорытынды және марапаттау")
 safe_video("videos/7.mp4")
 
-st.markdown("---")
+# Видео мен есептер арасына қойылған атау
+st.markdown('<div class="section-title">✨ Интерактивті тапсырмалар ✨</div>', unsafe_allow_html=True)
 
 if 'results_state' not in st.session_state:
     st.session_state.results_state = {}
